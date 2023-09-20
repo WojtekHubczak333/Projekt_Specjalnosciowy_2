@@ -10,25 +10,25 @@ use App\Http\Controllers\AuthController;
 | API Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
+| Here is where you can register API routes for your application.
 |
 */
 
 // Public login route
 Route::post('auth/login', [AuthController::class, 'login']);
 
+// Trasy bez autoryzacji
+Route::get("author", [AuthorApiController::class, 'get']);
+Route::get("author/{author}", [AuthorApiController::class, 'getId']);
+
+// Trasy wymagające autoryzacji
 Route::middleware(['auth:api'])->group(function () {
-    // Protected "author" routes
     Route::post("author", [AuthorApiController::class, 'post']);
-    Route::get("author", [AuthorApiController::class, 'get']);
-    Route::get("author/{author}", [AuthorApiController::class, 'getId']);
     Route::put("author/{author}", [AuthorApiController::class, 'put']);
     Route::patch("author/{author}", [AuthorApiController::class, 'patch']);
     Route::delete("author/{author}", [AuthorApiController::class, 'delete']);
 
-    // Logout and refresh token routes (assuming these should also be protected)
+    // Logout and refresh token routes (assuming these should also be public)
     Route::post('auth/logout', [AuthController::class, 'logout']);
     Route::post('auth/refresh', [AuthController::class, 'refresh']);
     Route::post('auth/me', [AuthController::class, 'me']);
@@ -38,3 +38,5 @@ Route::middleware(['auth:api'])->group(function () {
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
