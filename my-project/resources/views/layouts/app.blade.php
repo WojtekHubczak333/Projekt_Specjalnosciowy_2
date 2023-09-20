@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Laravel App</title>
 
-    <!-- Stylizacja tabeli -->
+
     <style>
-        /* Stylizacja tabeli */
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -23,13 +23,13 @@
             text-align: left;
         }
 
-        /* Stylizacja nagłówków tabeli */
+
         th {
             background-color: #f2f2f2;
             font-weight: bold;
         }
 
-        /* Dodatkowe style dla wierszy i komórek tabeli (opcjonalnie) */
+
         tr:nth-child(even) {
             background-color: #f5f5f5;
         }
@@ -42,19 +42,19 @@
 </head>
 <body>
 <header>
-    <!-- Wstaw tutaj nagłówek strony -->
+
 </header>
 
 <nav>
-    <!-- Wstaw tutaj nawigację, jeśli jest potrzebna -->
+
 </nav>
 
 <main>
-    @yield('content') <!-- Ta sekcja będzie wypełniona zawartością widoków -->
+    @yield('content')
 </main>
 
 <footer>
-    <!-- Wstaw tutaj stopkę strony -->
+
 </footer>
 </body>
 </html>
