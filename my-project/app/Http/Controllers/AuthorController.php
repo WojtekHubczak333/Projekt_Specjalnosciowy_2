@@ -25,7 +25,7 @@ public function store(Request $request)
 
 public function showWithBooks(Author $author)
 {
-    $books = $author->books;
+    $books = $author->books; 
 
     return view('authors.author_with_books', compact('author', 'books'));
 }
