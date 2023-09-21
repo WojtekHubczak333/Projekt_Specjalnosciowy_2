@@ -20,6 +20,7 @@
                 <td>{{ $author->last_name }}</td>
                 <td>
                     <a href="{{ route('authors.show', $author) }}" class="btn btn-info">Show</a>
+                    <a href="{{ route('authors.showWithBooks', $author) }}" class="btn btn-outline-info">Show with books</a>
                     <a href="{{ route('authors.edit', $author) }}" class="btn btn-warning">Edit</a>
                     <form action="{{ route('authors.destroy', $author) }}" method="POST" style="display: inline">
                         @csrf
