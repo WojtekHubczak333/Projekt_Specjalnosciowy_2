@@ -5,56 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Laravel App</title>
 
-
-    <style>
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 20px;
-        }
-
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-
-
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
-
-
-        tr:nth-child(even) {
-            background-color: #f5f5f5;
-        }
-
-        tr:hover {
-            background-color: #e0e0e0;
-        }
-    </style>
+    <!-- Dodanie Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 <body>
 <header>
+    <!-- Wstaw tutaj nagłówek strony -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
 
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>
 
-<nav>
-
-</nav>
-
-<main>
-    @yield('content')
+<main class="container mt-5">
+    @yield('content') <!-- Ta sekcja będzie wypełniona zawartością widoków -->
 </main>
 
-<footer>
-
+<footer class="bg-light text-center py-3">
+    <!-- Wstaw tutaj stopkę strony -->
+    &copy; 2023
 </footer>
+
+<!-- Dodanie Bootstrap JavaScript (opcjonalnie) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
