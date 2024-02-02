@@ -29,7 +29,18 @@
                     </form>
                 </td>
             </tr>
+            
         @endforeach
+        
         </tbody>
     </table>
+    <form action="{{ route('authors.index') }}" method="GET" class="mb-3">
+    <div class="input-group">
+        <input type="text" name="search" class="form-control" placeholder="Search by author name">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+    <div class="d-flex justify-content-center">
+        {{ $authors->links('pagination::bootstrap-5') }}
+    </div>
 @endsection

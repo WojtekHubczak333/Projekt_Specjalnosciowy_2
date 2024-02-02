@@ -8,23 +8,23 @@ class AuthorApiController extends Controller
 {
     public function post(Request $request)
     {
-        // Walidacja danych wejściowych
+        
         $validatedData = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
         ]);
 
-        // Utwórz nowego autora
+        
         $author = Author::create($validatedData);
 
         return response()->json(['message' => 'Autor został dodany', 'author' => $author], 201);
     }
-
+    
 
 
     public function delete(Request $request,Author $author)
     {
-        // Kod do usuwania autora
+       
         $author->delete();
 
         return response()->json(['message' => 'Autor został usunięty'], 200);
@@ -32,13 +32,13 @@ class AuthorApiController extends Controller
 
     public function patch(Request $request, Author $author)
     {
-        // Walidacja danych wejściowych
+       
         $validatedData = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
         ]);
 
-        // Aktualizuj dane autora
+       
         $author->update($validatedData);
 
         return response()->json(['message' => 'Autor został zaktualizowany', 'author' => $author], 200);
@@ -46,13 +46,13 @@ class AuthorApiController extends Controller
 
     public function put(Request $request, Author $author)
     {
-        // Walidacja danych wejściowych
+        
         $validatedData = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
         ]);
 
-        // Aktualizuj dane autora
+       
         $author->update($validatedData);
 
         return response()->json(['message' => 'Autor został zaktualizowany', 'author' => $author], 200);

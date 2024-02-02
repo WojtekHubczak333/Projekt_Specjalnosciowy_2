@@ -8,10 +8,43 @@ use App\Models\Author;
 
 class BookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
+{
+    $query = Book::query();
+
+    if ($request->has('search')) {
+        $searchTerm = $request->input('search');
+        $query->where('title', 'like', "%$searchTerm%")
+              ->orWhere('description', 'like', "%$searchTerm%");
+    }
+
+    $books = $query->paginate(5);
+
+    return view('books.index', compact('books'));
+}
+    public function addRandomBook()
     {
-        $books = Book::all();
-        return view('books.index', compact('books'));
+        $faker = \Faker\Factory::create();
+    
+    
+        $authors = Author::all();
+    
+       
+        $randomAuthor = $authors->random();
+    
+        
+        $newBook = new Book([
+            'title' => $faker->sentence,
+            'description' => $faker->paragraph,
+            'publish_year' => $faker->year,
+            'author_id' => $randomAuthor->id,
+        ]);
+    
+       
+        $newBook->save();
+    
+        
+        return redirect()->route('books.index');
     }
 
     public function create()
